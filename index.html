@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+		<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+		<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+		<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	</head>
+	<body>
+		<nav class="navbar">
+			<span class="open-slide">
+				<a href="#">
+					<svg width="30" height="30">
+						<path d="M0,5 30,5" stroke="#5C91D2" stroke-width="4"/>
+						<path d="M0,14 30,14" stroke="#5C91D2" stroke-width="4"/>
+						<path d="M0,23 30,23" stroke="#5C91D2" stroke-width="4"/>
+					</svg>
+				</a>
+			</span>
+		</nav>
+		<div id="side-menu" class="side-nav">
+			<a href="#" class="btn-close">&times;</a>
+			<div class="sidebar">
+				<h1>NYC Charitable Organizations</h1>
+				<div class="custom-select">
+					<select data-bind="options: filterOptions, value: selectedOption, optionsText: 'name'"></select>
+				</div>
+				<div data-bind="foreach: listOfPoints">
+					<p data-bind="text: title, click: $parent.populateInfoWindow_"></p>
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<div id="map"></div>
+		</div>
+		<div id="dialog" title="Give back to our community">
+  			<p><a href="#">GiveBackNYC.org</a> allows New Yorkers to find charitable organizations that are looking for volunteers. As a high-school student in the Bronx, it has been difficult for me to discover organizations whose messages I really resonate with. I hope this website will help other high-school students make an impact by giving back to our amazing city. Almost 200 organizations are split up into 5 categories based on the types of volunteering opportunities offered.<p>
+		</div>
+		<script type='text/javascript' src="knockout-3.4.2.js"></script>
+		<script type='text/javascript' src="app.js"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJTlzrQJskgei8xVjzw7Fiwch2tyTeeiY&v=3&callback=window.initMap" onerror="failMap()"></script>
+	</body>
+</html>
+
